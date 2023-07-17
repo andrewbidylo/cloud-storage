@@ -42,7 +42,8 @@ export class FilesController {
       }),
     )
     file: Express.Multer.File,
+    @UserId() userId: number,
   ) {
-    return file;
+    return this.filesService.create(file);
   }
 }
