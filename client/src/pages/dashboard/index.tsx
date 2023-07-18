@@ -1,12 +1,19 @@
 import { GetServerSidePropsContext, NextPage } from "next"
 import { checkAuth } from "../../utils/checkAuth"
+import { Header } from "../../components/Header"
 
 
 const DashboardPage: NextPage = () => {
   return (
-    <title>
-      Dashboard
-    </title>
+    <>
+      <main>
+        <Header />
+        <title>
+          Dashboard
+        </title>
+      </main>
+    </>
+
   );
 };
 
