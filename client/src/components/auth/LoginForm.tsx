@@ -2,9 +2,10 @@ import React from 'react'
 import styles from './Auth.module.scss'
 import { Button, Form, Input, notification } from "antd"
 import { setCookie } from "nookies"
-import { LoginFormDTO } from "@/types/auth"
+import { LoginFormDTO } from '../../types/auth'
+import * as Api from "../../api"
 
-export const LoginForm:React.FC = ({}) => {
+export const LoginForm: React.FC = ({ }) => {
   const onSubmit = async (values: LoginFormDTO) => {
     try {
       const { token } = await Api.auth.login(values);
@@ -32,8 +33,8 @@ export const LoginForm:React.FC = ({}) => {
   };
   return (
     <div className={styles.formBlock}>
-    <Form
-      name="basic"
+      <Form
+        name="basic"
       labelCol={{
         span: 8,
       }}
@@ -59,7 +60,7 @@ export const LoginForm:React.FC = ({}) => {
           {
             required: true,
             message: "Field can not be empty"
-        }]}
+          }]}
       >
         <Input.Password />
       </Form.Item>
@@ -75,6 +76,6 @@ export const LoginForm:React.FC = ({}) => {
         </Button>
       </Form.Item>
     </Form>
-  </div>
+  </div >
   )
 }
