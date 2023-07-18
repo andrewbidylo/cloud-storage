@@ -12,7 +12,7 @@ export const LoginForm: React.FC = ({ }) => {
 
       notification.success({
         message: "Success!",
-        description: "Dashboard is opening...",
+        description: "Dashboard is loading...",
         duration: 2,
       });
 

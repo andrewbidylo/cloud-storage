@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginFormDTO, LoginResponseDTO } from "../types/auth";
+import { LoginFormDTO, LoginResponseDTO, RegisterFormDTO, RegisterResponseDTO } from "../types/auth";
 
 
 export const login = async (
@@ -8,3 +8,8 @@ export const login = async (
   return (await axios.post("/auth/login", values)).data;
 };
 
+export const register = async (
+  values: RegisterFormDTO
+): Promise<RegisterResponseDTO> => {
+  return (await axios.post("/auth/register", values)).data;
+};
