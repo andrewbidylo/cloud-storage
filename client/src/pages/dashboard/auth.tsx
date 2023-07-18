@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { LoginForm } from '../../components/auth/LoginForm'
+import { LoginForm } from '../../components/Auth/LoginForm'
 import {Tabs} from 'antd'
-import { RegisterForm } from '../../components/auth/RegisterForm'
+import { RegisterForm } from '../../components/Auth/RegisterForm'
 
 const AuthPage: NextPage = () => {
   return (
