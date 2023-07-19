@@ -28,13 +28,11 @@ export const Files: React.FC<FilesProps> = ({ items, withActions }) => {
     setFiles((prev) => prev.filter((file) => !selectedIds.includes(file.id)))
     Api.files.remove(selectedIds)
   }
-  
+
   let imageUrl = ""
   if (files[0]) {
     imageUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/uploads/` + files[0].filename
   }
-
-  console.log(imageUrl)
   const onClickShare = () => {
     if (files[0].filename) {
       navigator.clipboard.writeText(imageUrl)
