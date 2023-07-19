@@ -1,21 +1,21 @@
-import React from "react";
-import { Layout, Avatar, Menu, Popover, Button } from "antd";
-import styles from "./Header.module.scss";
-import { CloudOutlined } from "@ant-design/icons";
-import { useRouter } from "next/router";
+import React from "react"
+import { Layout, Avatar, Menu, Popover, Button } from "antd"
+import styles from "./Header.module.scss"
+import { CloudOutlined } from "@ant-design/icons"
+import { useRouter } from "next/router"
 
-import * as Api from "../../api";
+import * as Api from "../../api"
 
 export const Header: React.FC = () => {
-  const router = useRouter();
-  const selectedMenu = router.pathname;
+  const router = useRouter()
+  const selectedMenu = router.pathname
 
   const onClickLogout = () => {
     if (window.confirm("Please, confirm you want to log out?")) {
-      Api.auth.logout();
-      location.href = "/";
+      Api.auth.logout()
+      location.href = "/"
     }
-  };
+  }
 
   return (
     <Layout.Header className={styles.root}>
@@ -33,8 +33,8 @@ export const Header: React.FC = () => {
             defaultSelectedKeys={[selectedMenu]}
             onSelect={({ key }) => router.push(key)}
             items={[
-              { key: "/dashboard", label: "Home" },
-              { key: "/dashboard/profile", label: "Profile" },
+              { key: "/", label: "Main" },
+              { key: "/profile", label: "Profile" },
             ]}
           />
         </div>
@@ -53,5 +53,5 @@ export const Header: React.FC = () => {
         </div>
       </div>
     </Layout.Header>
-  );
-};
+  )
+}

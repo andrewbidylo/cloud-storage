@@ -1,7 +1,7 @@
-import React from "react";
-import { setCookie } from "nookies";
-import styles from "./Auth.module.scss";
-import { Button, Form, Input, notification } from "antd";
+import React from "react"
+import { setCookie } from "nookies"
+import styles from "./Auth.module.scss"
+import { Button, Form, Input, notification } from "antd"
 import { RegisterFormDTO } from "../../types/auth"
 
 import * as Api from "../../api"
@@ -9,29 +9,29 @@ import * as Api from "../../api"
 export const RegisterForm: React.FC = () => {
   const onSubmit = async (values: RegisterFormDTO) => {
     try {
-      const { token } = await Api.auth.register(values);
+      const { token } = await Api.auth.register(values)
 
       notification.success({
         message: "Success!",
         description: "Dashboard is loading...",
         duration: 2,
-      });
+      })
 
       setCookie(null, "_token", token, {
         path: "/",
-      });
+      })
 
-      location.href = "/dashboard";
+      location.href = "/"
     } catch (err) {
-      console.warn(err);
+      console.warn(err)
 
       notification.error({
         message: "Error!",
         description: "Registration Error",
         duration: 2,
-      });
+      })
     }
-  };
+  }
 
   return (
     <div className={styles.formBlock}>
@@ -93,5 +93,5 @@ export const RegisterForm: React.FC = () => {
         </Form.Item>
       </Form>
     </div>
-  );
-};
+  )
+}

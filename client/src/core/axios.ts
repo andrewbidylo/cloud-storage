@@ -1,8 +1,6 @@
 import axios from "axios";
 import { parseCookies } from "nookies";
 
-axios.defaults.baseURL = "http://localhost:8000";
-
 axios.interceptors.request.use((config) => {
   if (typeof window !== "undefined") {
     const { _token } = parseCookies();

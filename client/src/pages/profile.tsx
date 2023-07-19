@@ -1,26 +1,25 @@
-import { GetServerSidePropsContext, NextPage } from "next";
-import { User } from "../../types/auth";
-import { Button } from "antd";
+import { GetServerSidePropsContext, NextPage } from "next"
+import { User } from "../types/auth"
+import { Button } from "antd"
 
-import styles from "@/styles/Profile.module.scss";
-import { checkAuth } from "../../utils/checkAuth";
-import * as Api from "../../api";
-import React from "react";
-import { Layout } from "../../layouts/Layout";
-import DashboardPage from "../../pages/dashboard/index";
-import { Dashboard } from "../../types/dashboard";
+import styles from "@/styles/Profile.module.scss"
+import { checkAuth } from "../utils/checkAuth"
+import * as Api from "../api"
+import React from "react"
+import { Layout } from "../layouts/Layout"
+import { Dashboard } from "../types/dashboard"
 
 interface Props {
-  userData: User;
+  userData: User
 }
 
 const DashboardProfilePage: Dashboard<Props> = ({ userData }) => {
   const onClickLogout = () => {
     if (window.confirm("Are you leaving?")) {
-      Api.auth.logout();
-      location.href = "/";
+      Api.auth.logout()
+      location.href = "/"
     }
-  };
+  }
 
   return (
     <main>
@@ -42,27 +41,27 @@ const DashboardProfilePage: Dashboard<Props> = ({ userData }) => {
         </Button>
       </div>
     </main>
-  );
-};
+  )
+}
 
 DashboardProfilePage.getLayout = (page: React.ReactNode) => {
-  return <Layout title="Dashboard / Profile">{page}</Layout>;
-};
+  return <Layout title="Dashboard / Profile">{page}</Layout>
+}
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const authProps = await checkAuth(ctx);
+  const authProps = await checkAuth(ctx)
 
   if ("redirect" in authProps) {
-    return authProps;
+    return authProps
   }
 
-  const userData = await Api.auth.getMe();
+  const userData = await Api.auth.getMe()
 
   return {
     props: {
       userData,
     },
-  };
-};
+  }
+}
 
-export default DashboardProfilePage;
+export default DashboardProfilePage

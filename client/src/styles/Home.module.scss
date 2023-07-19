@@ -1,6 +1,7 @@
 .main {
-  width: 1200px;
+  max-width: 1200px;
   margin: 40px auto;
+  padding: 20px;
 }
 
 .sidebar {
@@ -33,5 +34,5 @@
 
 .dashboardContainer {
   display: grid;
-  grid-template-columns: 0.3fr 1fr;
+  grid-template-columns: 0.3fr 5fr;
 }
