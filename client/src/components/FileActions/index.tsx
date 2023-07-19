@@ -22,8 +22,8 @@ export const FileActions: React.FC<FileActionsProps> = ({
       <Popconfirm
         title="Remove file(s)?"
         description="All files will be moved to trash"
-        okText="Да"
-        cancelText="Нет"
+        okText="Yes"
+        cancelText="No"
         disabled={!isActive}
         onConfirm={onClickRemove}
       >
