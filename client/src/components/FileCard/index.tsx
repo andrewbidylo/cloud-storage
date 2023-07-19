@@ -15,7 +15,7 @@ export const FileCard: React.FC<FileCardProps> = ({
   filename,
 }) => {
   const ext = getExtensionFromFileName(filename)
-  const imageUrl = ext && isImage(ext) ? `${process.env.SERVER_URL}/uploads/` + filename : ""
+  const imageUrl = ext && isImage(ext) ? `${process.env. NEXT_PUBLIC_SERVER_URL}/uploads/` + filename : ""
 
   const color = getColorByExtension(ext)
   const classColor = styles[color]
