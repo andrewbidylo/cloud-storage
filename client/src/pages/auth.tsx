@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { LoginForm } from '../components/Auth/LoginForm'
 import {Tabs} from 'antd'
 import { RegisterForm } from '../components/Auth/RegisterForm'
+import styles from '../components/Auth/Auth.module.scss'
+
 
 const AuthPage: NextPage = () => {
   return (
@@ -12,7 +14,7 @@ const AuthPage: NextPage = () => {
           Dashboard / Auth
         </title>
       </Head>
-      <main style={{ width: "400px", margin: "50px auto" }}>
+      <main className={styles.root}>
       <Tabs
         items={[
           {
