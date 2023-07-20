@@ -16,11 +16,11 @@ Functionalities for users include:
 
 ## Final Product
 
-!["main_page_1"]("https://github.com/andrewbidylo/cloud-storage/blob/master/client/docs/main_page.png?raw=true")
+!["main_page_1"](https://github.com/andrewbidylo/cloud-storage/blob/master/client/docs/main_page.png?raw=true)
 
-!["main_page_2"]("https://github.com/andrewbidylo/cloud-storage/blob/master/client/docs/login.png?raw=true")
+!["main_page_2"](https://github.com/andrewbidylo/cloud-storage/blob/master/client/docs/login.png?raw=true)
 
-!["main_page_3"]("https://github.com/andrewbidylo/cloud-storage/blob/master/client/docs/profile.png?raw=true")
+!["main_page_3"](https://github.com/andrewbidylo/cloud-storage/blob/master/client/docs/profile.png?raw=true)
 
 
 ## Getting Started
