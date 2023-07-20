@@ -9,6 +9,7 @@ import {
   UseGuards,
   Query,
   Delete,
+  Patch,
 } from '@nestjs/common';
 import { FilesService } from './files.service';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
@@ -60,8 +61,12 @@ export class FilesController {
     return this.filesService.create(file, userId);
   }
 
-  @Delete()
+  @Patch()
   remove(@UserId() userId: number, @Query('ids') ids: string) {
     return this.filesService.remove(userId, ids);
+  }
+  @Delete()
+  removePermanently(@UserId() userId: number, @Query('ids') ids: string) {
+    return this.filesService.removePermanently(userId, ids);
   }
 }

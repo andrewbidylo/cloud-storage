@@ -9,9 +9,10 @@ import * as Api from "../api"
 interface FilesProps {
   items: FileItem[]
   withActions?: boolean
+  withRemove?: boolean
 }
 
-export const Files: React.FC<FilesProps> = ({ items, withActions }) => {
+export const Files: React.FC<FilesProps> = ({ items, withActions, withRemove }) => {
   const [files, setFiles] = React.useState(items || [])
   const [selectedIds, setSelectedIds] = React.useState<number[]>([])
 
@@ -27,6 +28,12 @@ export const Files: React.FC<FilesProps> = ({ items, withActions }) => {
     setSelectedIds([])
     setFiles((prev) => prev.filter((file) => !selectedIds.includes(file.id)))
     Api.files.remove(selectedIds)
+  }
+
+  const onClickDelete = () => {
+    setSelectedIds([])
+    setFiles((prev) => prev.filter((file) => !selectedIds.includes(file.id)))
+    Api.files.removePermanently(selectedIds)
   }
 
   let imageUrl = ""
@@ -47,7 +54,10 @@ export const Files: React.FC<FilesProps> = ({ items, withActions }) => {
             <FileActions
               onClickRemove={onClickRemove}
               onClickShare={onClickShare}
-              isActive={selectedIds.length > 0}
+              onClickDelete={onClickDelete}
+              isActiveRemove={selectedIds.length > 0}
+              isActiveShare={selectedIds.length === 1}
+              withRemove={withRemove}
               imageUrl={imageUrl}
             />
           )}

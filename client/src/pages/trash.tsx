@@ -16,7 +16,7 @@ interface Props {
 const DashboardTrash: Dashboard<Props> = ({ items }) => {
   return (
     <DashboardLayout>
-      <Files items={items} />
+      <Files items={items} withActions withRemove />
     </DashboardLayout>
   );
 };

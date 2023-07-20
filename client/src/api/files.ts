@@ -8,6 +8,9 @@ export const getAll = async (type: FileType = "all"): Promise<FileItem[]> => {
 }
 
 export const remove = (ids: number[]): Promise<void> => {
+  return axios.patch("/files?ids=" + ids)
+}
+export const removePermanently = (ids: number[]): Promise<void> => {
   return axios.delete("/files?ids=" + ids)
 }
 type UploadOptions = {

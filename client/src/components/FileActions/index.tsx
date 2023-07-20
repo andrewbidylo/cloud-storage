@@ -5,28 +5,36 @@ import { Button, Popconfirm } from "antd"
 interface FileActionsProps {
   onClickRemove: VoidFunction
   onClickShare: VoidFunction
+  onClickDelete:VoidFunction
   imageUrl:string
-  isActive: boolean
+  isActiveRemove: boolean
+  isActiveShare:boolean
+  withRemove?:boolean
 }
 
 export const FileActions: React.FC<FileActionsProps> = ({
   onClickRemove,
   onClickShare,
-  isActive,
+  onClickDelete,
+  isActiveRemove,
+  isActiveShare,
+  withRemove,
   imageUrl,
+  
 }) => {
   return (
     <div className={styles.root}>
-
+      {!withRemove ? 
+      <>
       <Popconfirm
         title="Copy the link to the image?"
         description={imageUrl}
         okText="Copy"
         cancelText="No"
-        disabled={!isActive}
+        disabled={!isActiveShare}
         onConfirm={onClickShare}
       >
-      <Button disabled={!isActive}>
+      <Button disabled={!isActiveShare}>
         Share
       </Button>
       </Popconfirm>
@@ -36,13 +44,28 @@ export const FileActions: React.FC<FileActionsProps> = ({
         description="All files will be moved to trash"
         okText="Yes"
         cancelText="No"
-        disabled={!isActive}
+        disabled={!isActiveRemove}
         onConfirm={onClickRemove}
       >
-        <Button disabled={!isActive} type="primary" danger>
+        <Button disabled={!isActiveRemove} type="primary" danger>
           Remove
         </Button>
       </Popconfirm>
+      </>
+      : 
+      <Popconfirm
+      title="Remove the file permanently?"
+      okText="Yes"
+      cancelText="No"
+      disabled={!isActiveShare}
+      onConfirm={onClickDelete}
+    >
+    <Button disabled={!isActiveShare}>
+      Delete
+    </Button>
+    </Popconfirm>
+      }
+      
     </div>
   )
 }
